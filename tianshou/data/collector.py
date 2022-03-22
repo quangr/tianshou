@@ -288,12 +288,12 @@ class Collector(object):
                 episode_start_indices.append(ep_idx[env_ind_local])
                 # now we copy obs_next to obs, but since there might be
                 # finished episodes, we have to reset finished envs first.
-                obs_reset = self.env.reset(env_ind_global)
-                if self.preprocess_fn:
-                    obs_reset = self.preprocess_fn(
-                        obs=obs_reset, env_id=env_ind_global
-                    ).get("obs", obs_reset)
-                self.data.obs_next[env_ind_local] = obs_reset
+                # obs_reset = self.env.reset(env_ind_global)
+                # if self.preprocess_fn:
+                #     obs_reset = self.preprocess_fn(
+                #         obs=obs_reset, env_id=env_ind_global
+                #     ).get("obs", obs_reset)
+                # self.data.obs_next[env_ind_local] = obs_reset
                 for i in env_ind_local:
                     self._reset_state(i)
 
